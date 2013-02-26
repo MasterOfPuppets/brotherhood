@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	{% include 'header.html' %}
+			<div class="form-holder">
+				<form method="post">
+					<label>
+						<div class="form-label">Name</div>
+						<div class="form-input">
+							<input type="text" name ="name" value="{{name}}" >
+							<div class="error">{{error_name}}</div>
+						</div>
+					</label>
+					<label>
+						<div class="form-label">email</div>
+						<div class="form-input">
+							<input type="text" name ="email" value="{{email}}" >
+							<div class="error">{{error_email}}</div>
+						</div>
+					</label>
+					<input type="submit" value="Save brother">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

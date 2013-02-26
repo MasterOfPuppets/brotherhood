@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CS253 - Blog system</title>
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+	</head>
+	<body>
+		<div class="header">
+		<h2><a href="/">CS253 - Blog system</a></h2>
+		<a href="/newpost">new post?</a>
+		</div>
+	<hr>
+	<div class="blog-entries">
+		<div class="blog-entry">
+			<div class="blog-subject">{{post_data.subject|escape}}</div>
+			<div class="blog-postdate">{{post_data.created|datetime('long')}}</div>
+			<div class="blog-content"><textarea readonly = true class="show-content" >{{post_data.content|escape}}</textarea></div>
+		</div>
+	</div>
+	<div class="permalinks">
+		<a href="/">go home</a>
+	</div>
+	</body>
+</html>

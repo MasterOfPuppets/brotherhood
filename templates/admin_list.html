@@ -1,0 +1,47 @@
+		{% if brothers.count() == 0 %}
+		<h2>Sorry there are no brothers. Please try again later.</h2>
+		{% endif %}
+		
+		<table class="list-brothers">
+		<tr><th>#</th><th>Name</th><th>Email</th><th>Next?</th><th>Done?<th>&nbsp;</th><th colspan="2">Index pos</th><th>&nbsp;</th></tr>
+		{% for brother in brothers %}
+
+		<tr>
+			<td>{{brother.index}}</td>
+			<td>{{brother.name | escape}}</td>
+			<td>{{brother.email | escape}}</td>
+			<td>{{brother.am_i_next | is_next}}</td>
+			<td>
+			{% if brother.am_i_next %}
+			<a href="/brother-done/{{brother.key().id()}}">YES!</a>
+			{% endif %}
+			</td>
+			
+			<td>
+			{% if not brother.am_i_next %}
+			<a href="/setnext/{{brother.key().id()}}">Set next</a>
+			{% endif %}
+			</td>
+			<td>
+				{% if brother.index > limits[0]  %}
+				<a href="/index_up/{{brother.key().id()}}">Up</a>
+				{% else %}
+				--
+				{% endif %}
+			</td>
+			<td>
+				{% if brother.index < limits[1].index  %}
+				<a href="/index_dw/{{brother.key().id()}}">dw</a>
+				{% else %}
+				--
+				{% endif %}
+			</td>
+			<td>
+			{% if not brother.am_i_next %}
+			<a href="javascript:wipeBrother('/wipe/{{brother.key().id()}}');">Wipe</a></td>
+			{% else %}
+			Next
+			{% endif %}
+		</tr>
+		{% endfor %}
+		</table>

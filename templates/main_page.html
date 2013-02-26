@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	{% include 'header.html' %}
+	<div class="blog-entries">	
+		{% if brothers.count() == 0 %}
+		<h2>Sorry there are no brothers.</h2>
+		<p><a href="/newbrother">Create one?</a></p>
+		{% endif %}
+		<table class="list-brothers" >
+		<thead><th>#</th><th>Name</th><th>email</th><th>Is next?</th></thead>
+		{% for brother in brothers %}
+		<tr class="brother-line {% if brother.am_i_next %} he-is-next {% endif %}" title = "brother since {{brother.created | datetime}}">
+		<td class="b-index ">{{brother.index}}</td><td class="b-name">{{brother.name | escape}}</td><td class="b-email">{{brother.email | escape}}</td><td class="b-next">{{brother.am_i_next | is_next}}</td>
+		</tr>
+		{% endfor %}
+		</table>
+	</div>
+	<div class="log-entries">
+	{% if entries.count() > 0 %}
+		<table class="entries-list">
+		<tr><th>Date</th><th>Brother</th><th>Waiting days</th></tr>
+		{% for entry in entries %}
+			<tr><td>{{entry.created | datetime }}</td><td>{{entry.name}}</td><td class="b-next">{{entry.waiting_days}}</td></tr>
+		{% endfor %}
+		</table>	
+	{% endif %}
+	</div>
+	</body>
+</html>
