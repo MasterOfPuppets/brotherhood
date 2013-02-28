@@ -100,8 +100,8 @@ class LogEntries(db.Model):
 class MainPage(Handler):
 	def get(self):
 		
-#		for i in range(1,6):
-#			b = Brothers(parent = db_key(),name = "Brother %d"%(i), email = "Mail %d"%(i))
+#		for i in range(1,12):
+#			b = Brothers(parent = db_key(),name = "Look at my Brother's name %d"%(i), email = "thisis@Mail %d"%(i))
 #			b.am_i_next = False
 #			b.index = i
 #			b.put()

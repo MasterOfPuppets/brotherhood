@@ -2,6 +2,7 @@
 		<title>The brotherhood</title>
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<link href='http://fonts.googleapis.com/css?family=Griffy' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC' rel='stylesheet' type='text/css'>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src = "/js/scripts.js"></script>
 	</head>
@@ -11,11 +12,12 @@
 		</div>
 		<div class="user">
 		{% if user %}
-		<span class="user-logged">Hello {{user.nickname()}}</span>
-		<span class="user-logged-img" title = "logout"><a href="{{users.create_logout_url("/")}}"><img src = "/static/imgs/logout.png" alt = "logout"></a></span>
-		<span class="user-logged-admin" title ="Admin the list"><a href="/admin-the-list"><img src="/static/imgs/admin.png" alt="Admin the list" ></a></span>
+		<span class="user-logged"><p>hello, {{user.nickname()}}!</p></span>
+		<span class="user-logged-img" title = "Logout - From google account!
+To logout from here just leave."><a href="{{users.create_logout_url("/")}}">logout</a></span>
+		<span class="user-logged-admin" title ="Admin the list"><a href="/admin-the-list">Admin</a></span>
 		{% else %}
-		<span class="user-logged-img" title = "login"><a href="{{users.create_login_url("/")}}"><img src = "/static/imgs/login.png" alt = "login"></a></p>
+		<span class="user-logged-img" title = "login"><a href="{{users.create_login_url("/")}}">login</a></p>
 		{% endif %}
 		</div>
 	<div class="float-breaker">&nbsp;</div>

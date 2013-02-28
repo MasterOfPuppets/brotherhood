@@ -7,7 +7,7 @@
 		<p><a href="/newbrother">Create one?</a></p>
 		{% endif %}
 		<table class="list-brothers" >
-		<thead><th>#</th><th>Name</th><th>email</th><th>Is next?</th></thead>
+		<thead><th>#</th><th>name</th><th>email</th><th>is next?</th></thead>
 		{% for brother in brothers %}
 		<tr class="brother-line {% if brother.am_i_next %} he-is-next {% endif %}" title = "brother since {{brother.created | datetime}}">
 		<td class="b-index ">{{brother.index}}</td><td class="b-name">{{brother.name | escape}}</td><td class="b-email">{{brother.email | escape}}</td><td class="b-next">{{brother.am_i_next | is_next}}</td>
