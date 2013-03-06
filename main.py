@@ -179,10 +179,11 @@ class BrotherDone(Handler):
 		l.put()
 		email = EmailBrothers()
 		email.send("The list was updated", """Dear brothers, the list was updated.
-		%s brought the package today.
-		Next up is %s.
-		
-		May the natao live forever!
+%s brought the package today.
+Next up is %s.
+
+May the natao live forever!
+http://big-natao.appspot.com
 		""" % (getBrother.name, newBrother.name))
 		self.redirect("/admin-the-list")	
 								
@@ -248,13 +249,15 @@ class NewBrother(Handler):
 		self.render("brother_form.html",name = name , email = email, error_name = error_name, error_email = error_email , user = user, users = users)
 
 class EmailBrothers():
-	def send(self,  subject, msg):
-		sender = "Brotherhood of the big natao <paulomartinsoliveira@gmailcom>"
+	def send(self, subject, msg):
+		lSender = "Brotherhood of the big natao <uniko@iol.pt>"
 		brothers = Brothers.all()
+		brothersList = []
 		for brother in brothers:
-			to = brother.email
-			mail.send_mail(sender = sender,
-		              to = "Brother %s <%s>" % (brother.name, to),
+			brothersList.append(brother.email)
+			
+		mail.send_mail(sender = lSender,
+		              to = brothersList,
 		              subject = subject,
 		              body= msg)
 			
