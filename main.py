@@ -249,12 +249,12 @@ class NewBrother(Handler):
 
 class EmailBrothers():
 	def send(self,  subject, msg):
-		sender = "Brotherhood of the big natao"
+		sender = "Brotherhood of the big natao <paulomartinsoliveira@gmailcom>"
 		brothers = Brothers.all()
 		for brother in brothers:
 			to = brother.email
 			mail.send_mail(sender = sender,
-		              to = to,
+		              to = "Brother %s <%s>" % (brother.name, to),
 		              subject = subject,
 		              body= msg)
 			
