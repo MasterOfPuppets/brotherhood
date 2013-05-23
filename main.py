@@ -5,6 +5,7 @@ import datetime
 from google.appengine.api import users
 from google.appengine.ext import db
 from google.appengine.api import mail
+import logging
 #helpers
 def format_datetime(value, how = 'short'):
 	if how == 'short':
@@ -116,6 +117,10 @@ class Admin(Handler):
 		if not user:
 			self.redirect("/")
 			return
+		logging.info("User-id: %s" % user.user_id())
+		if not user.user_id() in ['102749944644647152798']:
+			self.redirect("/")
+			return			
 		self.render("main_admin.html", user = user, users = users)
 
 class AdminList(Handler):
@@ -234,7 +239,8 @@ class NewBrother(Handler):
 		error_name = ""
 		error_email = ""
 		user = self.user_handling()
-		if name and email:
+		if name and email:	
+
 			#save the record
 			newBrother = Brothers(parent = db_key(), name = name, email = email)
 			newBrother.put()
