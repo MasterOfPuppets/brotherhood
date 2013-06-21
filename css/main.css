@@ -66,7 +66,7 @@ label {
 }
 .blog-entries {
 	border-radius : 15px;
-	background : #eee;
+	background : red;
 	padding : 10px;
 }
 .list-brothers {
@@ -166,6 +166,7 @@ animation-iteration-count : infinite;
 -o-animation:myfirst 5s;
 -o-animation-iteration-count: infinite;
 }
+
 
 @-moz-keyframes myfirst 
 {
