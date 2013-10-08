@@ -256,7 +256,7 @@ class NewBrother(Handler):
 
 class EmailBrothers():
 	def send(self, subject, msg):
-		lSender = "Brotherhood of the big natao <uniko@iol.pt>"
+		lSender = "Brotherhood of the big natao <paulo.martins.oliveira@gmail.com>"
 		brothers = Brothers.all()
 		brothersList = []
 		for brother in brothers:
